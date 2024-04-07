@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>my-api-gateway</artifactId>
+        <groupId>org.wyh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>backend-http-server</artifactId>
+    <packaging>jar</packaging>
+
+    <name>backend-http-server</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- 依赖版本 -->
+        <spring-boot-starter-web.version>2.6.6</spring-boot-starter-web.version>
+        <spring-core.version>5.3.18</spring-core.version>
+        <gateway-client.version>1.0-SNAPSHOT</gateway-client.version>
+        <jjwt.version>0.6.0</jjwt.version>
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+    </properties>
+
+    <dependencies>
+        <!-- spring核心组件 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-core.version}</version>
+        </dependency>
+        <!-- springBoot依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-web.version}</version>
+        </dependency>
+        <!-- 依赖于gateway-client模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-client</artifactId>
+            <version>${gateway-client.version}</version>
+        </dependency>
+        <!-- java的jwt工具库 -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <!-- 负责xml数据与java对象的相互转换 -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+    </dependencies>
+    <!-- 以下这段代码的意义不明，暂不使用 -->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <version>2.1.7.RELEASE</version>-->
+<!--                <configuration>-->
+<!--                    <mainClass>org.imooc.backend.http.server.Application</mainClass>-->
+<!--                    <addResources>true</addResources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>3.0.0-M5</version>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+</project>

@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>my-api-gateway</artifactId>
+    <groupId>org.wyh</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>gateway-client</artifactId>
+  <packaging>jar</packaging>
+  <description>
+    客户端模块本质上是服务接入模块。
+    主要作用是扫描（后台）RPC服务（注解），然后自动注册到注册中心（即扫描服务并自动注册）
+  </description>
+
+  <name>gateway-client</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <!-- 依赖版本号 -->
+    <spring-boot-starter-web.version>2.1.7.RELEASE</spring-boot-starter-web.version>
+    <spring-boot-configuration-processor.version>2.0.4.RELEASE</spring-boot-configuration-processor.version>
+    <dubbo.version>2.7.4.1</dubbo.version>
+    <gateway-register-center-api.version>1.0-SNAPSHOT</gateway-register-center-api.version>
+    <gateway-register-center-nacos-impl.version>1.0-SNAPSHOT</gateway-register-center-nacos-impl.version>
+    <gateway-common.version>1.0-SNAPSHOT</gateway-common.version>
+  </properties>
+
+  <dependencies>
+    <!-- spring boot相关依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring-boot-starter-web.version}</version>
+      <exclusions>
+        <!-- 本项目中已使用其他日志框架，因此排除starter-web中的logback日志依赖项。-->
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <version>${spring-boot-configuration-processor.version}</version>
+      <optional>true</optional>
+    </dependency>
+    <!-- dubbo依赖 -->
+    <dependency>
+      <groupId>org.apache.dubbo</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>${dubbo.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- 依赖于gateway-register-center中的两个模块 -->
+    <dependency>
+      <groupId>org.wyh</groupId>
+      <artifactId>gateway-register-center-api</artifactId>
+      <version>${gateway-register-center-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.wyh</groupId>
+      <artifactId>gateway-register-center-nacos-impl</artifactId>
+      <version>${gateway-register-center-nacos-impl.version}</version>
+    </dependency>
+    <!-- 依赖于gateway-common模块 -->
+    <dependency>
+      <groupId>org.wyh</groupId>
+      <artifactId>gateway-common</artifactId>
+      <version>${gateway-common.version}</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>
