@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>my-api-gateway</artifactId>
+        <groupId>org.wyh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>gateway-core</artifactId>
+    <packaging>jar</packaging>
+
+    <name>gateway-core</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- 依赖版本 -->
+        <apm-toolkit-trace.version>8.15.0</apm-toolkit-trace.version>
+        <apm-toolkit-log4j-2.x>8.15.0</apm-toolkit-log4j-2.x>
+        <hystrix-core.version>1.5.12</hystrix-core.version>
+        <jjwt.version>0.6.0</jjwt.version>
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+        <micrometer-registry-prometheus.version>1.10.2</micrometer-registry-prometheus.version>
+        <disruptor.version>3.3.6</disruptor.version>
+        <gateway-common.version>1.0-SNAPSHOT</gateway-common.version>
+        <gateway-register-center-api.version>1.0-SNAPSHOT</gateway-register-center-api.version>
+        <gateway-config-center-api.version>1.0-SNAPSHOT</gateway-config-center-api.version>
+        <gateway-register-center-nacos-impl.version>1.0-SNAPSHOT</gateway-register-center-nacos-impl.version>
+        <gateway-config-center-nacos-impl.version>1.0-SNAPSHOT</gateway-config-center-nacos-impl.version>
+    </properties>
+
+    <dependencies>
+        <!-- skywalking跟踪工具包，用于提供跟踪相关的api，例如使用@Trace来跟踪某个方法的调用信息 -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${apm-toolkit-trace.version}</version>
+        </dependency>
+        <!-- skywalking log4j2增强工具包，主要作用是增强log4j2的功能，使之能够打印skywalking跟踪id -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-log4j-2.x</artifactId>
+            <version>${apm-toolkit-log4j-2.x}</version>
+        </dependency>
+
+        <!-- Netflix Hystrix依赖，用于做服务熔断 -->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>${hystrix-core.version}</version>
+        </dependency>
+        <!--  java的jwt工具库 -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <!-- 负责xml数据与java对象的相互转换 -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+        <!-- 收集应用中的度量统计数据，并将数据转换为Prometheus可使用的格式 -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer-registry-prometheus.version}</version>
+        </dependency>
+        <!-- Disruptor框架，用于做缓冲队列 -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
+        </dependency>
+        <!-- 依赖于gateway-common模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-common</artifactId>
+            <version>${gateway-common.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 依赖于gateway-register-center-api模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-register-center-api</artifactId>
+            <version>${gateway-register-center-api.version}</version>
+        </dependency>
+        <!-- 依赖于gateway-register-center-nacos-impl模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-register-center-nacos-impl</artifactId>
+            <version>${gateway-register-center-nacos-impl.version}</version>
+        </dependency>
+        <!-- 依赖于gateway-config-center-api模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-config-center-api</artifactId>
+            <version>${gateway-config-center-api.version}</version>
+        </dependency>
+        <!-- 依赖于gateway-config-center-nacos-impl模块 -->
+        <dependency>
+            <groupId>org.wyh</groupId>
+            <artifactId>gateway-config-center-nacos-impl</artifactId>
+            <version>${gateway-config-center-nacos-impl.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>

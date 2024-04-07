@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.wyh</groupId>
+  <artifactId>my-api-gateway</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>gateway-common</module>
+    <module>gateway-core</module>
+    <module>gateway-client</module>
+    <module>gateway-config-center</module>
+    <module>gateway-register-center</module>
+    <module>backend-http-server</module>
+    <module>backend-dubbo-server</module>
+    <module>gateway-register-center/gateway-register-center-api</module>
+    <module>gateway-register-center/gateway-register-center-nacos-impl</module>
+    <module>gateway-config-center/gateway-config-center-api</module>
+      <module>gateway-config-center/gateway-config-center-nacos-impl</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>my-api-gateway</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <!-- 依赖版本 -->
+    <lombok.version>1.18.26</lombok.version>
+    <junit.version>4.12</junit.version>
+    <netty.version>4.1.51.Final</netty.version>
+    <async-http-client.version>2.10.0</async-http-client.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <log4j2.version>2.11.1</log4j2.version>
+    <jackson.version>2.12.3</jackson.version>
+    <fastjson.verson>1.2.76</fastjson.verson>
+    <jsonpath.version>2.4.0</jsonpath.version>
+    <protobuf.version>3.7.1</protobuf.version>
+    <caffeine.version>3.1.5</caffeine.version>
+
+  </properties>
+
+  <dependencies>
+    <!-- lombok依赖 -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+
+    <!-- 测试工具 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- 网络依赖 -->
+    <!-- netty框架 -->
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>${netty.version}</version>
+    </dependency>
+    <!-- 基于netty的异步http客户端（请求框架） -->
+    <dependency>
+      <groupId>org.asynchttpclient</groupId>
+      <artifactId>async-http-client</artifactId>
+      <version>${async-http-client.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.asynchttpclient</groupId>
+      <artifactId>async-http-client-netty-utils</artifactId>
+      <version>${async-http-client.version}</version>
+    </dependency>
+
+    <!-- 日志依赖 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+
+    <!-- 数据处理相关依赖 -->
+    <!-- jackson依赖 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <!-- fastjson依赖 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.verson}</version>
+    </dependency>
+    <!-- jsonpath依赖，用于从json中提取指定信息 -->
+    <dependency>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>${jsonpath.version}</version>
+    </dependency>
+    <!-- protobuf依赖，用于结构化数据的序列化和反序列化 -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+    <!-- caffeine缓存依赖 -->
+    <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
+      <version>${caffeine.version}</version>
+    </dependency>
+
+  </dependencies>
+</project>
